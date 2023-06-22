@@ -1,0 +1,24 @@
+#Memanggil Module GPIO & Time
+import RPi.GPIO as GPIO
+from time import sleep as DELAY
+
+#Deklarasi Mode GPIO
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+
+#Deklarasi Variabel Pin
+pinButton = 3
+pinLed = 5
+
+#Deklarasi Mode Pin
+GPIO.setup(pinButton, GPIO.IN)
+GPIO.setup(pinLed, GPIO.OUT)
+
+#Mengeksekusi Program dengan Infinite Loop
+while True:
+    if GPIO.input(pinButton)==0:
+        print "Button Ditekan"
+        GPIO.output(pinLed, 1)
+		else:
+			GPIO.output(pinLed, 0)
+		DELAY(0.1)
